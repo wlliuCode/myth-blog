@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="myth-common-minio" />
+        <module name="myth-sms-api" />
+        <module name="myth-common-knife4j" />
+        <module name="myth-pms-biz" />
+        <module name="myth-gateway" />
+        <module name="myth-ams-api" />
+        <module name="myth-ams-biz" />
+        <module name="myth-common-db" />
+        <module name="myth-common-redis" />
+        <module name="myth-sms-biz" />
+        <module name="myth-search" />
+        <module name="myth-auth" />
+        <module name="myth-cms-api" />
+        <module name="myth-ums-api" />
+        <module name="myth-common-core" />
+        <module name="myth-common-web" />
+        <module name="myth-cms-biz" />
+        <module name="myth-ums-biz" />
+        <module name="myth-common-util" />
+        <module name="myth-pms-api" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="myth-ams" options="" />
+      <module name="myth-ams-api" options="-parameters" />
+      <module name="myth-ams-biz" options="-parameters" />
+      <module name="myth-auth" options="-parameters" />
+      <module name="myth-cms" options="" />
+      <module name="myth-cms-api" options="-parameters" />
+      <module name="myth-cms-biz" options="-parameters" />
+      <module name="myth-common-core" options="-parameters" />
+      <module name="myth-common-db" options="-parameters" />
+      <module name="myth-common-knife4j" options="-parameters" />
+      <module name="myth-common-minio" options="-parameters" />
+      <module name="myth-common-redis" options="-parameters" />
+      <module name="myth-common-util" options="-parameters" />
+      <module name="myth-common-web" options="-parameters" />
+      <module name="myth-gateway" options="-parameters" />
+      <module name="myth-pms" options="" />
+      <module name="myth-pms-api" options="-parameters" />
+      <module name="myth-pms-biz" options="-parameters" />
+      <module name="myth-search" options="-parameters" />
+      <module name="myth-sms" options="" />
+      <module name="myth-sms-api" options="-parameters" />
+      <module name="myth-sms-biz" options="-parameters" />
+      <module name="myth-ums" options="" />
+      <module name="myth-ums-api" options="-parameters" />
+      <module name="myth-ums-biz" options="-parameters" />
+    </option>
+  </component>
+</project>

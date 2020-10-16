@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myth.cms.mapper.CommentReplyMapper">
+
+    <resultMap id="ArticleCommentReplyMap" type="com.myth.cms.entity.CommentReply">
+        <id column="reply_id" property="replyId" javaType="String"/>
+        <result column="comment_id" property="commentId" javaType="String"/>
+        <result column="parent_reply_id" property="parentReplyId" javaType="String"/>
+        <result column="reply_type" property="replyType" javaType="String"/>
+        <result column="reply_content" property="replyContent" javaType="String"/>
+        <result column="from_user_id" property="fromUserId" javaType="String"/>
+        <result column="to_user_id" property="toUserId" javaType="String"/>
+
+        <result column="from_user_name" property="fromUserName" javaType="String"/>
+        <result column="from_user_avatar" property="fromUserAvatar" javaType="String"/>
+        <result column="to_user_name" property="toUserName" javaType="String"/>
+        <result column="to_user_avatar" property="toUserAvatar" javaType="String"/>
+
+        <collection property="commentReplies" column="reply_id"
+                    ofType="com.myth.cms.entity.CommentReply"
+                    select="getByParentReplyId"/>
+    </resultMap>
+
+    <select id="getByCommentId" resultMap="ArticleCommentReplyMap">
+        select
+            cr.reply_id,
+            cr.comment_id,
+            cr.parent_reply_id,
+            cr.reply_type,
+            cr.reply_content,
+            cr.from_user_id,
+            cr.to_user_id,
+            cr.create_time,
+            cr.update_time,
+            u1.username from_user_name,
+            u1.avatar_url from_user_avatar,
+            u2.username to_user_name,
+            u2.avatar_url to_user_avatar
+            from t_comment_reply cr
+            left join t_user u1
+            on cr.from_user_id = u1.user_id
+            left join t_user u2
+            on cr.to_user_id = u2.user_id
+        where cr.comment_id = #{commentId}
+        and cr.parent_reply_id = '0'
+    </select>
+
+    <select id="getByParentReplyId" resultMap="ArticleCommentReplyMap">
+        select
+            cr.reply_id,
+            cr.comment_id,
+            cr.parent_reply_id,
+            cr.reply_type,
+            cr.reply_content,
+            cr.from_user_id,
+            cr.to_user_id,
+            cr.create_time,
+            cr.update_time,
+            u1.username from_user_name,
+            u1.avatar_url from_user_avatar,
+            u2.username to_user_name,
+            u2.avatar_url to_user_avatar
+            from t_comment_reply cr
+            left join t_user u1
+            on cr.from_user_id = u1.user_id
+            left join t_user u2
+            on cr.to_user_id = u2.user_id
+        where cr.parent_reply_id = #{parentReplyId}
+    </select>
+
+</mapper>

@@ -1,0 +1,30 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: myth-auth
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql:///wlliu_blog?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    port: 6379
+    host: 47.100.202.70
+mybatis-plus:
+  type-aliases-package: com.wlliu.blog.gateway.oauthauth.entity
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

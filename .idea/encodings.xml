@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/myth-ams/myth-ams-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-ams/myth-ams-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-cms/myth-cms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-cms/myth-cms-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-db/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-knife4j/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-minio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-util/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-common/myth-common-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-pms/myth-pms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-pms/myth-pms-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-sms/myth-sms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-sms/myth-sms-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-ums/myth-ums-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myth-ums/myth-ums-biz/src/main/java" charset="UTF-8" />
+  </component>
+</project>

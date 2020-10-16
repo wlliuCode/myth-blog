@@ -1,0 +1,111 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: oauth-gateway
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql:///wlliu_blog?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  redis:
+    port: 6379
+    host: 47.100.202.70
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+    gateway:
+      routes:
+        - id: myth-ams-api
+          uri: lb://myth-ams
+          order: 1
+          predicates:
+            - Path=/ams/**
+          filters:
+            - StripPrefix=1
+        - id: myth-cms-api
+          uri: lb://myth-cms
+          order: 1
+          predicates:
+            - Path=/cms/**
+          filters:
+            - StripPrefix=1
+        - id: myth-pms-api
+          uri: lb://myth-pms
+          order: 1
+          predicates:
+            - Path=/pms/**
+            - Age=18,60
+          filters:
+            - StripPrefix=1
+        - id: myth-sms-api
+          uri: lb://myth-sms
+          order: 1
+          predicates:
+            - Path=/sms/**
+          filters:
+            - StripPrefix=1
+        - id: myth-ums-api
+          uri: lb://myth-ums
+          order: 1
+          predicates:
+            - Path=/ums/**
+          filters:
+            - StripPrefix=1
+        - id: myth-auth-api
+          uri: lb://myth-auth
+          order: 1
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  security:
+    user:
+      password: user
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: 'http://localhost:7001/rsa/publicKey' #配置RSA的公钥访问地址
+mybatis-plus:
+  type-aliases-package: com.wlliu.blog.gateway.oauthgateway.entity
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+      - "/auth/oauth/**"
+      - "/login"
+      #swagger
+      - "/doc.html"
+      - "/swagger-ui.html"
+      - "/swagger-resources/**"
+      - "/swagger-resources/**"
+      - "/v2/**"
+      - "/v3/**"
+      - "/webjars/**"
+
+      - "/*/swagger-ui.html"
+      - "/*/swagger-resources/**"
+      - "/*/swagger-resources/**"
+      - "/*/v2/**"
+      - "/*/v3/**"
+      - "/*/webjars/**"
+
+      #- "/**"

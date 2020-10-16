@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: myth-cms
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql:///wlliu_blog?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+mybatis-plus:
+  type-aliases-package: com.wlliu.entity
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 6030
